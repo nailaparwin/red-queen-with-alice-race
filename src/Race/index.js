@@ -48,7 +48,7 @@ function Race() {
 
       const queenTiming = {
         easing: 'steps(7, end)',
-        direction: "reverse",
+        //direction: "reverse",
         duration: 1000,
         playbackRate: 1,
         iterations: Infinity
@@ -58,7 +58,7 @@ function Race() {
         timing: queenTiming,
       });
 
-      const sceneries = [fg1, fg2, bk1, bk2];
+      //const sceneries = [fg1, fg2, bk1, bk2];
 
       const adjustBackgroundPlayback = () => {         
         if (pbr < .8) {
@@ -93,12 +93,13 @@ function Race() {
       
 useEffect(()=>{    
     setInterval( function() {
-        /* Set decay */
-        if (pbr > .4) {
-            queen.getAnimation().playbackRate *= .9;    
+        
+        if (pbr > 1) {
+            pbr = 1;
+            queen.getAnimation().playbackRate= pbr;    
         } 
         adjustBackgroundPlayback();
-      }, 6000);
+      }, 10000);
 
     document.addEventListener("click", goFaster);
     document.addEventListener("touchstart", goFaster);
